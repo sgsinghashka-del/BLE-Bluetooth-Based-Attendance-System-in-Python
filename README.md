@@ -1,40 +1,100 @@
-AutoAttend BLE is a Python-based automated attendance tracking system that uses Bluetooth Low Energy (BLE) to mark attendance when registered devices are detected nearby. The program continuously scans for predefined Bluetooth device MAC addresses and records attendance once per day per device, ensuring accuracy and preventing duplicate entries.
+🔵 **Bluetooth Device Detection & Alert System (Python)**
 
-Built using the Bleak library and Python’s asynchronous programming model, this project demonstrates a real-world application of proximity-based automation and BLE scanning.
+This project is a Python-based Bluetooth Low Energy (BLE) scanner that continuously monitors nearby BLE devices and triggers an alert when a specific target device is detected.
+It uses the bleak library for cross-platform BLE scanning and is suitable for security monitoring, asset tracking, and proximity-based alerts.
 
-✨ Key Features
-Automatic attendance marking using Bluetooth MAC address detection
-Prevents duplicate attendance entries for the same day
-Supports multiple registered devices
-Real-time timestamp logging
-Asynchronous and efficient BLE scanning
-Simple and extensible code structure
+**🚀 Features**
+📡 Scans nearby Bluetooth Low Energy (BLE) devices
+🎯 Detects a specific target device by MAC address
+🚨 Triggers an alert only once when the device is first detected
+⏰ Logs the exact detection time
+💻 Works on Windows, Linux, and macOS
+⚡ Lightweight and easy to customize
 
+**🛠️ Technologies Used**
+Python 3.8+
+asyncio – asynchronous scanning
+bleak – BLE device scanning
+datetime – timestamp logging
 
-🛠️ Technologies Used
-Python
-Bleak (Bluetooth Low Energy scanning)
-Asyncio
-Datetime
-
-
-📌 Use Cases
-Classroom or training attendance systems
-Office employee presence tracking
-Contactless attendance solutions
-IoT and Bluetooth learning projects
-
-
-🚀 How It Works
-Maintains a list of registered Bluetooth device MAC addresses
-Scans nearby BLE devices asynchronously
-Matches detected devices with registered entries
-Mark's attendance is once per day per device
-Displays attendance confirmation with a timestamp
+📂 **Project Structure**
+bluetooth-device-detector/
+│
+├── app.py        # Main Python script
+├── README.md         # Project documentation
+└── requirements.txt  # Python dependencies
 
 
-⚠️ Important Notes
-Works only with Bluetooth Low Energy (BLE) devices
-MAC address detection is more reliable than device name detection
-Bluetooth permissions must be enabled on the operating system
-Classic Bluetooth devices (e.g., speakers, headphones) are not supported
+**📦 Installation**
+1️⃣ Clone the Repository
+git clone https://github.com/your-username/bluetooth-device-detector.git
+cd bluetooth-device-detector
+
+2️⃣ Create a Virtual Environment (Optional but Recommended)
+python -m venv venv
+source venv/bin/activate    # macOS/Linux
+venv\Scripts\activate       # Windows
+
+3️⃣ Install Dependencies
+pip install bleak
+
+Or using requirements.txt:
+
+pip install -r requirements.txt
+⚙️ Configuration
+
+Open scanner.py and update the target device MAC address:
+
+TARGET_DEVICE_ADDRESS = "A4:4B:D5:51:D0:8D"
+
+💡 Tip: You can find BLE MAC addresses using Bluetooth scanner apps or tools like bluetoothctl (Linux) or system Bluetooth settings.
+
+▶️ Usage
+
+Run the scanner using:
+
+python app.py
+
+**Sample Output**
+📡 Scanning for device...
+
+ALERT!
+Device detected: A4:4B:D5:51:D0:8D
+Time: 18:42:15
+
+🛑 Scan stopped
+
+The scanner runs for 30 seconds by default and stops automatically.
+
+**🧠 How It Works**
+Starts an asynchronous BLE scan
+Listens for advertisement packets
+Compares detected device addresses with the target MAC
+Triggers an alert when a match is found
+Prevents duplicate alerts during the same scan session
+
+**🔒 Use Cases**
+🔐 Security & intrusion detection
+📍 Proximity-based alerts
+🧾 Asset tracking
+🧪 BLE experimentation & learning
+🏠 Smart home presence detection
+
+**⚠️ Notes & Limitations**
+Requires Bluetooth hardware support
+BLE MAC addresses may change due to device privacy settings
+On Windows, ensure Bluetooth is enabled and supported by the OS
+
+
+**🔮 Future Enhancements**
+🔔 Sound or email notifications
+🗄️ Logging detection events to a file
+🔁 Continuous scanning mode
+📊 Dashboard or GUI interface
+🌐 Webhook or API integration
+
+
+**🤝 Contributing**
+
+Contributions are welcome!
+Feel free to fork this repository and submit a pull request.
